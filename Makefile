@@ -4,11 +4,16 @@ SHELL = bash
 all: run
 
 run:
-	docker compose build --parallel
-	docker compose up
+	docker compose up --build
 
-shell:
+stop:
+	docker compose down
+
+shell-api:
 	docker compose exec api /bin/bash
+
+shell-frontend:
+	docker compose exec frontend /bin/bash
 
 migrate:
 	docker compose exec api alembic upgrade head
@@ -23,6 +28,11 @@ new-migration:
 init-alembic:
 	docker-compose exec api alembic init -t async alembic
 
-test:
+test-api:
 	docker compose exec api pytest
+
+test-frontend:
+	docker compose exec frontend npm test
+
+
 
