@@ -41,7 +41,7 @@ export const WelcomeScreen = ({ onStart }: WelcomeScreenProps) => {
 									Touchez pour commencer
 								</div>
 								<div className="text-sm text-gray-500">
-									Cliquez n'importe où sur l'écran
+									{"Cliquez n'importe où sur l'écran"}
 								</div>
 							</div>
 						</CardContent>
